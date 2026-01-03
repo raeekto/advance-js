@@ -72,8 +72,17 @@ const getData = (dataId) => {
 
 
 
+//using callback hell(nested callbacks), difficult to understand
+// getData(1, () => {
+//     getData(2, ()=>{
+//         getData(3, ()=>{
+//             getData(4);
+//         });
+//     });
+// });
 
-// // using callback hell
+
+// // using promise 
 // console.log("Fetching data1")
 // getData(1).then((res) => {
 //     // console.log(res);
@@ -89,12 +98,18 @@ const getData = (dataId) => {
 
 
 // //using promise chain
-// console.log("Fetching data1");
-// getData(1).then((res)=>{
-//     // console.log(`${res} data1`);
-//     console.log("Fetching data2");
-//     getData(2).then((res) => {
-//         // console.log(`${res} data2`);
-//     });
+// console.log("Fetching data1!");
+// getData(1).then((res) => {
+//     // console.log("res");
+
+//     console.log("Fetching data2!");
+//     return getData(2);
+// }).then((res)=>{
+//     // console.log(res);
+
+//     console.log("Fetching data3!");
+//     return getData(3);
+// }).then((res) => {
+//     // console.log(res);
 // });
 
